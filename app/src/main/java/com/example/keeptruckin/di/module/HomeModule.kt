@@ -13,7 +13,7 @@ import dagger.Provides
 class HomeModule(private val activity: FragmentActivity) {
     @ActivityScoped
     @Provides
-    fun provideHometModel(homeViewModelFactory: HomeViewModelFactory): HomeViewModel {
+    fun provideHomeViewModel(homeViewModelFactory: HomeViewModelFactory): HomeViewModel {
         return ViewModelProviders.of(activity, homeViewModelFactory).get(HomeViewModel::class.java)
     }
 

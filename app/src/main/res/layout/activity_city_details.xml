@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+        xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+>
+    <data>
+        <import type="android.view.View"/>
+        <variable
+                name="viewModel"
+                type="com.example.keeptruckin.module.home.cityDetail.CityDetailViewModel"/>
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#ffffff">
+
+        <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Details"
+                    android:textSize="24dp"
+                    android:layout_gravity="center"
+                    />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Add City"
+                    android:textSize="16dp"
+                    android:layout_gravity="right"
+                    android:layout_marginEnd="8dp"
+                    />
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/name_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                tools:text="Value"
+                android:textSize="24dp"
+                android:textColor="@color/colorPrimary"
+                android:layout_marginStart="16dp"
+                app:layout_constraintTop_toBottomOf="@+id/toolbar"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/name_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                tools:text="Value"
+                android:textSize="24dp"
+                android:textColor="#000000"
+                android:layout_marginStart="16dp"
+                app:layout_constraintTop_toBottomOf="@+id/name_label"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/province_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                tools:text="Value"
+                android:textSize="24dp"
+                android:textColor="@color/colorPrimary"
+                android:layout_marginStart="16dp"
+                app:layout_constraintTop_toBottomOf="@+id/name_value"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/province_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                tools:text="Value"
+                android:textSize="24dp"
+                android:textColor="#000000"
+                android:layout_marginStart="16dp"
+                app:layout_constraintTop_toBottomOf="@+id/province_label"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/country_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                tools:text="Value"
+                android:textSize="24dp"
+                android:textColor="@color/colorPrimary"
+                android:layout_marginStart="16dp"
+                app:layout_constraintTop_toBottomOf="@+id/province_value"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/country_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                tools:text="Value"
+                android:textSize="24dp"
+                android:textColor="#000000"
+                android:layout_marginStart="16dp"
+                app:layout_constraintTop_toBottomOf="@+id/country_label"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/timezone_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                tools:text="Value"
+                android:textSize="24dp"
+                android:textColor="@color/colorPrimary"
+                android:layout_marginStart="16dp"
+                app:layout_constraintTop_toBottomOf="@+id/country_value"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/timezone_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                tools:text="Value"
+                android:textSize="24dp"
+                android:textColor="#000000"
+                android:layout_marginStart="16dp"
+                app:layout_constraintTop_toBottomOf="@+id/timezone_label"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/population_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                tools:text="Value"
+                android:textSize="24dp"
+                android:textColor="@color/colorPrimary"
+                android:layout_marginStart="16dp"
+                app:layout_constraintTop_toBottomOf="@+id/timezone_value"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/population_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                tools:text="Value"
+                android:textSize="24dp"
+                android:textColor="#000000"
+                android:layout_marginStart="16dp"
+                app:layout_constraintTop_toBottomOf="@+id/population_label"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
