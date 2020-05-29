@@ -4,7 +4,10 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.keeptruckin.AppApplication
 import com.example.keeptruckin.R
+import com.example.keeptruckin.di.component.DaggerCityDetailComponent
+import com.example.keeptruckin.di.module.CityDetailModule
 import javax.inject.Inject
 
 class CityDetailActivity : AppCompatActivity() {
@@ -28,6 +31,9 @@ class CityDetailActivity : AppCompatActivity() {
     }
 
     fun setupFragmentComponent() {
-
+        DaggerCityDetailComponent.builder()
+            .applicationComponent(AppApplication.getInstance()?.mComponent)
+            .cityDetailModule(CityDetailModule(this))
+            .build().inject(this)
     }
 }

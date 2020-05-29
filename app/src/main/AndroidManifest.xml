@@ -18,6 +18,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".module.home.cityDetail.CityDetailActivity">
+
         </activity>
         <activity android:name=".module.home.citySearch.CitySearchActivity">
 

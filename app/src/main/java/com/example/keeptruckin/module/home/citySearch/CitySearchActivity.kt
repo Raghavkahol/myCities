@@ -4,7 +4,10 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.keeptruckin.AppApplication
 import com.example.keeptruckin.R
+import com.example.keeptruckin.di.component.DaggerCitySearchComponent
+import com.example.keeptruckin.di.module.CitySearchModule
 import javax.inject.Inject
 
 class CitySearchActivity : AppCompatActivity() {
@@ -33,6 +36,9 @@ class CitySearchActivity : AppCompatActivity() {
     }
 
     fun setupFragmentComponent() {
-
+        DaggerCitySearchComponent.builder()
+            .applicationComponent(AppApplication.getInstance()?.mComponent)
+            .citySearchModule(CitySearchModule(this))
+            .build().inject(this)
     }
 }
