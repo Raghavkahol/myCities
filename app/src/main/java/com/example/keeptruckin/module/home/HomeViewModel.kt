@@ -4,11 +4,13 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.keeptruckin.BaseViewModel
+import com.example.keeptruckin.ViewModelLifecycleState
 import com.example.keeptruckin.service.ApiService
 import kotlinx.coroutines.launch
 
 
-class HomeViewModel(private val apiService: ApiService) : ViewModel() {
+class HomeViewModel(private val apiService: ApiService) : BaseViewModel() {
 
     private val _dataLoading = MutableLiveData<Boolean>()
     val dataLoading: LiveData<Boolean> = _dataLoading
@@ -19,5 +21,9 @@ class HomeViewModel(private val apiService: ApiService) : ViewModel() {
 
     private fun getCardsData() {
 
+    }
+
+    fun openCitySearchActivity() {
+        lifecycleState.onNext(ViewModelLifecycleState.StartWithRequest(1))
     }
 }

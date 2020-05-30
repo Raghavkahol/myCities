@@ -9,7 +9,7 @@ import dagger.Provides
 @Module
 class ContextModule(context: Context) {
 
-    private lateinit var context: Context
+    private var context: Context
 
     init {
         this.context = context
