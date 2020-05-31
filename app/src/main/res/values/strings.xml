@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">keepTruckin</string>
+    <string name="label_add_city">Add City</string>
+    <string name="label_remove_city">Remove City</string>
 </resources>

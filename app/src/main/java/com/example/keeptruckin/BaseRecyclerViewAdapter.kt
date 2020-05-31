@@ -17,8 +17,6 @@ abstract class BaseRecyclerViewAdapter<T>(context: Context, mList: List<T>) : Re
     }
 
     fun setData(list: List<T>?) {
-        if (mList != null)
-            mList = emptyList()
         mList = list
         notifyDataSetChanged()
     }

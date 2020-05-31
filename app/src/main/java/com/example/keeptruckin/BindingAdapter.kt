@@ -5,7 +5,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 @BindingAdapter("recyclerViewAdapter")
 fun <T> setRecyclerViewAdapter(recyclerView: RecyclerView, itemList: List<T>?) {
-    if (itemList?.isNullOrEmpty() == true) {
+    if (itemList == null) {
         return
     }
     val adapter = recyclerView.adapter as BaseRecyclerViewAdapter<T>

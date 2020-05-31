@@ -36,7 +36,7 @@
                     android:text="Search"
                     android:textSize="16dp"
                     android:layout_gravity="right"
-                    android:layout_marginEnd="8dp"
+                    android:layout_marginEnd="16dp"
                     android:onClick="@{()->viewModel.openCitySearchActivity()}"
                     android:textColor="#ffffff"/>
 
@@ -48,12 +48,22 @@
                 android:layout_height="0dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:recyclerViewAdapter="@{viewModel.cities}"
                 app:layout_constraintTop_toBottomOf="@+id/toolbar"
                 app:layout_constraintBottom_toBottomOf="parent"
             >
-
         </androidx.recyclerview.widget.RecyclerView>
 
+        <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No City Available"
+                android:textColor="#4D000000"
+                android:visibility="@{viewModel.isDataUnavalable? View.VISIBLE : View.GONE}"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

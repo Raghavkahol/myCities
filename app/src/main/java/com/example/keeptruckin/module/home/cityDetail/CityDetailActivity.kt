@@ -12,7 +12,9 @@ import com.example.keeptruckin.BaseViewModelActivity
 import com.example.keeptruckin.R
 import com.example.keeptruckin.di.component.DaggerCityDetailComponent
 import com.example.keeptruckin.di.module.CityDetailModule
+import com.example.keeptruckin.model.CityDetail
 import com.example.keeptruckin.module.home.citySearch.CitySearchActivity
+import kotlinx.android.synthetic.main.activity_city_details.*
 import kotlinx.android.synthetic.main.activity_city_search.*
 import kotlinx.android.synthetic.main.city_search_layout.view.*
 import javax.inject.Inject
@@ -20,7 +22,6 @@ import javax.inject.Inject
 fun getCityDetailActivity(context: Context, cityName : String?): Intent {
     val intent  = Intent(context, CityDetailActivity::class.java)
     intent.putExtra("HREF", cityName)
-    context.startActivity(intent)
     return intent
 }
 

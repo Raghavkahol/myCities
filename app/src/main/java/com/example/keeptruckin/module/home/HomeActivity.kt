@@ -11,6 +11,7 @@ import com.example.keeptruckin.R
 import com.example.keeptruckin.ViewModelLifecycleState
 import com.example.keeptruckin.di.component.DaggerHomeComponent
 import com.example.keeptruckin.di.module.HomeModule
+import com.example.keeptruckin.model.CityDetail
 import com.example.keeptruckin.module.home.citySearch.getCitySearchIntent
 import javax.inject.Inject
 
@@ -37,12 +38,17 @@ class HomeActivity : BaseViewModelActivity() {
             lifecycleOwner = this@HomeActivity
             recyclerView.apply {
                 layoutManager = LinearLayoutManager(context)
-                adapter = HomeAdapter(context, ArrayList<Any>())
+                adapter = HomeAdapter(context, ArrayList<CityDetail>())
                 itemAnimator = DefaultItemAnimator()
                 addItemDecoration(DividerItemDecoration(this@HomeActivity, LinearLayoutManager.VERTICAL))
             }
 
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        homeViewModel.getCardsData()
     }
 
     override fun setupFragmentComponent() {

@@ -2,6 +2,7 @@ package com.example.keeptruckin.module.home.citySearch
 
 import android.content.Context
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -36,7 +37,8 @@ class CitySearchAdapter(context: Context,  mList: List<CitySearchResult>) :  Bas
 
         override fun onClick(v: View?) {
              val city: CitySearchResult? = mList?.get(adapterPosition)
-             context.startActivity(getCityDetailActivity(context, city?._links?.city_item?.href ))
+             context.startActivity(getCityDetailActivity(context, city?._links?.city_item?.href))
+
         }
     }
 }

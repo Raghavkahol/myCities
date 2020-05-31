@@ -31,6 +31,10 @@ abstract class BaseViewModelActivity : AppCompatActivity() {
 
     }
 
+    open fun onViewModelFinish() {
+        finish()
+    }
+
     open fun setupFragmentComponent() {
 
     }

@@ -14,19 +14,32 @@ class CitySearchViewModel(private val apiService: ApiService) : BaseViewModel() 
 
     var cityName= MutableLiveData<String>().apply { "" }
     var cities  = ObservableArrayList<CitySearchResult>()
+    var isDataUnavalable = MutableLiveData<Boolean>().apply { false }
 
+    var dataLoading: MutableLiveData<Boolean> = MutableLiveData<Boolean>().apply{false}
     var isVisible : MutableLiveData<Boolean> = MutableLiveData<Boolean>().apply { false }
 
     fun fetchCityList() {
         if(!TextUtils.isEmpty(cityName.value)) {
+            dataLoading.value = true
             bindDisposable {
                 apiService.getCityListSearchedByName(cityName.value)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({
+                        dataLoading.value = false
                        it._embedded?.city?.let{
-                           isVisible.value = true
-                           cities.addAll(it)
+                           with(cities){
+                               clear()
+                               addAll(it)
+                           }
+                           if(it.size ==0) {
+                               isVisible.value = false
+                               isDataUnavalable.value = true
+                           }else {
+                               isVisible.value = true
+                               isDataUnavalable.value = false
+                           }
                        }
                     }, {
                         it.printStackTrace()

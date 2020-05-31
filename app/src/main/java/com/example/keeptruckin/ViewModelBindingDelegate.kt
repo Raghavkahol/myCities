@@ -27,7 +27,8 @@ class ViewModelBinder(private val activityRef: WeakReference<BaseViewModelActivi
     private fun handleLifecycleStateChange(state: ViewModelLifecycleState) {
         activityRef.get()?.let {
                 when (state) {
-                    is ViewModelLifecycleState.StartWithRequest -> it.onViewModelStartWithRequest(state) //generic for any other call to activity
+                    is ViewModelLifecycleState.StartWithRequest -> it.onViewModelStartWithRequest(state)
+                    is ViewModelLifecycleState.FinishedWithResult -> it.onViewModelFinish()//generic for any other call to activity
                 }
         }
     }
