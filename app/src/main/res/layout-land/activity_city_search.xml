@@ -36,10 +36,10 @@
 
         <View
                 android:id="@+id/view_city_detail"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/spacing_zero"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="64dp"
-                android:layout_marginEnd="64dp"
+                android:layout_marginStart="@dimen/spacing_land"
+                android:layout_marginEnd="@dimen/spacing_land"
                 android:background="@color/white"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -88,7 +88,7 @@
 
         <View
                 android:id="@+id/line2"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/spacing_zero"
                 android:layout_height="@dimen/spacing_x_small"
                 android:background="@color/med_gray"
                 android:layout_marginTop="@dimen/spacing_large"
@@ -98,7 +98,7 @@
 
         <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycler_view"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/spacing_zero"
                 android:layout_height="@dimen/spacing_zero"
                 app:layout_constraintStart_toStartOf="@+id/view_city_detail"
                 app:layout_constraintEnd_toEndOf="@+id/view_city_detail"

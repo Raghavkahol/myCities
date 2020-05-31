@@ -11,4 +11,5 @@
     <dimen name="spacing_xx_small">4dp</dimen>
     <dimen name="font_size_x_large">20sp</dimen>
     <dimen name="spacing_x_medium">14dp</dimen>
+    <dimen name="spacing_land">64dp</dimen>
 </resources>
