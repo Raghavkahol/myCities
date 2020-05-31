@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
+import com.example.keeptruckin.AppConstants
 import com.example.keeptruckin.BaseRecyclerViewAdapter
 import com.example.keeptruckin.R
 import com.example.keeptruckin.model.CitySearchResult
@@ -28,11 +29,15 @@ class CitySearchAdapter(context: Context,  mList: List<CitySearchResult>) :  Bas
 
     internal inner class CitySearchViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
         fun bindView(city: CitySearchResult?) {
-            val cityData = city?.matching_full_name?.split(",")?.toTypedArray()
-            itemView.setOnClickListener(this)
-            itemView.city_name.text = cityData?.get(0)
-            itemView.state_name.text = cityData?.get(1)
-            itemView.country_name.text = cityData?.get(2)
+            val cityData = city?.matching_full_name?.split(AppConstants.COMMA)?.toTypedArray()
+            itemView.apply {
+                setOnClickListener(this@CitySearchViewHolder)
+                cityData?.let {
+                    city_name.text = it.get(AppConstants.ZERO_INT)
+                    state_name.text = it.get(AppConstants.ONE_INT)
+                    country_name.text = it.get(AppConstants.TWO_INT)
+                }
+            }
         }
 
         override fun onClick(v: View?) {

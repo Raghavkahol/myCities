@@ -2,6 +2,7 @@ package com.example.keeptruckin.module.home.cityDetail
 
 import android.text.TextUtils
 import androidx.lifecycle.MutableLiveData
+import com.example.keeptruckin.AppConstants
 import com.example.keeptruckin.BaseViewModel
 import com.example.keeptruckin.CitiesDao
 import com.example.keeptruckin.ViewModelLifecycleState
@@ -12,11 +13,11 @@ import io.reactivex.schedulers.Schedulers
 
 class CityDetailViewModel(private val apiService: ApiService, private val citiesDao: CitiesDao) : BaseViewModel() {
 
-    var cityName= MutableLiveData<String>().apply{""}
-    var provinceName= MutableLiveData<String>().apply{""}
-    var countryValue= MutableLiveData<String>().apply{""}
-    var timeZone= MutableLiveData<String>().apply{""}
-    var population= MutableLiveData<Int>().apply{""}
+    var cityName= MutableLiveData<String>().apply{AppConstants.EMPTY_STRING}
+    var provinceName= MutableLiveData<String>().apply{AppConstants.EMPTY_STRING}
+    var countryValue= MutableLiveData<String>().apply{AppConstants.EMPTY_STRING}
+    var timeZone= MutableLiveData<String>().apply{AppConstants.EMPTY_STRING}
+    var population= MutableLiveData<Int>().apply{AppConstants.EMPTY_STRING}
     var isInDB = MutableLiveData<Boolean>().apply { false }
     var isDataAvailable = MutableLiveData<Boolean>().apply { false }
     var dataLoading: MutableLiveData<Boolean> = MutableLiveData<Boolean>().apply{false}
@@ -43,6 +44,7 @@ class CityDetailViewModel(private val apiService: ApiService, private val cities
                         population.value = it.population
                         checkForCityInDB(it.geoname_id)
                     }, {
+                        dataLoading.value = false
                         it.printStackTrace()
                     })
             }
@@ -55,7 +57,7 @@ class CityDetailViewModel(private val apiService: ApiService, private val cities
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
-                    if(it>0) {
+                    if(it>AppConstants.ZERO_INT) {
                         isInDB.value = true
                     }
                     isDataAvailable.value = true

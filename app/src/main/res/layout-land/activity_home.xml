@@ -11,7 +11,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/white">
+            android:background="@color/sky_light">
 
         <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
@@ -46,13 +46,15 @@
                 android:id="@+id/recycler_view"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/spacing_zero"
+                android:layout_marginEnd="64dp"
+                android:layout_marginStart="64dp"
+                android:background="@color/bg_transparent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:background="@color/bg_transparent"
                 app:recyclerViewAdapter="@{viewModel.cities}"
                 app:layout_constraintTop_toBottomOf="@+id/toolbar"
                 app:layout_constraintBottom_toBottomOf="parent"
-            >
+        >
         </androidx.recyclerview.widget.RecyclerView>
 
         <androidx.appcompat.widget.AppCompatTextView

@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.keeptruckin.AppApplication
+import com.example.keeptruckin.AppConstants
 import com.example.keeptruckin.BaseViewModelActivity
 import com.example.keeptruckin.R
 import com.example.keeptruckin.di.component.DaggerCityDetailComponent
@@ -21,7 +22,7 @@ import javax.inject.Inject
 
 fun getCityDetailActivity(context: Context, cityName : String?): Intent {
     val intent  = Intent(context, CityDetailActivity::class.java)
-    intent.putExtra("HREF", cityName)
+    intent.putExtra(AppConstants.URL, cityName)
     return intent
 }
 
@@ -36,7 +37,7 @@ class CityDetailActivity : BaseViewModelActivity() {
         setupFragmentComponent()
         initComponents()
         setToolbar()
-        cityDetailViewModel.fetchCityDetail(intent.getStringExtra("HREF"))
+        cityDetailViewModel.fetchCityDetail(intent.getStringExtra(AppConstants.URL))
     }
 
     fun initComponents() {

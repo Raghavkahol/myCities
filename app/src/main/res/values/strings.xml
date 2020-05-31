@@ -2,4 +2,14 @@
     <string name="app_name">keepTruckin</string>
     <string name="label_add_city">Add City</string>
     <string name="label_remove_city">Remove City</string>
+    <string name="label_detail">Details</string>
+    <string name="label_name">NAME</string>
+    <string name="label_province">PROVINCE</string>
+    <string name="label_country">COUNTRY</string>
+    <string name="label_timezone">TIMEZONE</string>
+    <string name="label_population">POPULATION</string>
+    <string name="label_my_cities">My Cities</string>
+    <string name="label_Search">Search</string>
+    <string name="label_no_city_available">No City Available</string>
+    <string name="label_search_cities">Search Cities</string>
 </resources>

@@ -12,7 +12,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/white">
+            android:background="@color/sky_light">
 
         <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
@@ -47,6 +47,17 @@
 
         </androidx.appcompat.widget.Toolbar>
 
+        <View
+                android:id="@+id/view_city_detail"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="64dp"
+                android:layout_marginEnd="64dp"
+                android:background="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/toolbar"/>
+
         <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/name_label"
                 android:layout_width="wrap_content"
@@ -57,8 +68,8 @@
                 android:textColor="@color/colorPrimary"
                 android:visibility="@{viewModel.isDataAvailable ? View.VISIBLE : View.GONE}"
                 android:layout_marginStart="@dimen/spacing_medium"
-                app:layout_constraintTop_toBottomOf="@+id/toolbar"
-                app:layout_constraintStart_toStartOf="parent"/>
+                app:layout_constraintTop_toTopOf="@+id/view_city_detail"
+                app:layout_constraintStart_toStartOf="@+id/view_city_detail"/>
 
         <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/name_value"
@@ -71,7 +82,7 @@
                 android:textColor="@color/dark_gray"
                 android:layout_marginStart="@dimen/spacing_medium"
                 app:layout_constraintTop_toBottomOf="@+id/name_label"
-                app:layout_constraintStart_toStartOf="parent"/>
+                app:layout_constraintStart_toStartOf="@+id/view_city_detail"/>
 
         <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/province_label"
@@ -84,7 +95,7 @@
                 android:textColor="@color/colorPrimary"
                 android:layout_marginStart="@dimen/spacing_medium"
                 app:layout_constraintTop_toBottomOf="@+id/name_value"
-                app:layout_constraintStart_toStartOf="parent"/>
+                app:layout_constraintStart_toStartOf="@+id/view_city_detail"/>
 
         <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/province_value"
@@ -97,7 +108,7 @@
                 android:textColor="@color/dark_gray"
                 android:layout_marginStart="@dimen/spacing_medium"
                 app:layout_constraintTop_toBottomOf="@+id/province_label"
-                app:layout_constraintStart_toStartOf="parent"/>
+                app:layout_constraintStart_toStartOf="@+id/view_city_detail"/>
 
         <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/country_label"
@@ -110,7 +121,7 @@
                 android:textColor="@color/colorPrimary"
                 android:layout_marginStart="@dimen/spacing_medium"
                 app:layout_constraintTop_toBottomOf="@+id/province_value"
-                app:layout_constraintStart_toStartOf="parent"/>
+                app:layout_constraintStart_toStartOf="@+id/view_city_detail"/>
 
         <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/country_value"
@@ -123,7 +134,7 @@
                 android:textColor="@color/dark_gray"
                 android:layout_marginStart="@dimen/spacing_medium"
                 app:layout_constraintTop_toBottomOf="@+id/country_label"
-                app:layout_constraintStart_toStartOf="parent"/>
+                app:layout_constraintStart_toStartOf="@+id/view_city_detail"/>
 
         <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/timezone_label"
@@ -136,7 +147,7 @@
                 android:textColor="@color/colorPrimary"
                 android:layout_marginStart="@dimen/spacing_medium"
                 app:layout_constraintTop_toBottomOf="@+id/country_value"
-                app:layout_constraintStart_toStartOf="parent"/>
+                app:layout_constraintStart_toStartOf="@+id/view_city_detail"/>
 
         <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/timezone_value"
@@ -149,7 +160,7 @@
                 android:textColor="@color/dark_gray"
                 android:layout_marginStart="@dimen/spacing_medium"
                 app:layout_constraintTop_toBottomOf="@+id/timezone_label"
-                app:layout_constraintStart_toStartOf="parent"/>
+                app:layout_constraintStart_toStartOf="@+id/view_city_detail"/>
 
         <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/population_label"
@@ -162,7 +173,7 @@
                 android:textColor="@color/colorPrimary"
                 android:layout_marginStart="@dimen/spacing_medium"
                 app:layout_constraintTop_toBottomOf="@+id/timezone_value"
-                app:layout_constraintStart_toStartOf="parent"/>
+                app:layout_constraintStart_toStartOf="@+id/view_city_detail"/>
 
         <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/population_value"
@@ -175,7 +186,7 @@
                 android:textColor="@color/dark_gray"
                 android:layout_marginStart="@dimen/spacing_medium"
                 app:layout_constraintTop_toBottomOf="@+id/population_label"
-                app:layout_constraintStart_toStartOf="parent"/>
+                app:layout_constraintStart_toStartOf="@+id/view_city_detail"/>
 
         <ProgressBar
                 android:layout_width="wrap_content"

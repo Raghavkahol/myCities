@@ -2,18 +2,19 @@
 <androidx.constraintlayout.widget.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_height="wrap_content"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:background="#ffff">
 
     <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/city_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:textColor="#80000000"
-            android:layout_marginStart="16dp"
-            android:layout_marginBottom="4dp"
-            android:layout_marginTop="8dp"
+            android:textSize="@dimen/font_size_x_large"
+            android:textColor="@color/dark_gray"
+            android:layout_marginStart="@dimen/spacing_medium"
+            android:layout_marginBottom="@dimen/spacing_xx_small"
+            android:layout_marginTop="@dimen/spacing_small"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toTopOf="@+id/state_name"
             app:layout_constraintStart_toStartOf="parent"/>
@@ -23,10 +24,10 @@
             android:layout_width="0dp"
             app:layout_constraintWidth_percent="0.6"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:layout_marginStart="14dp"
-            android:layout_marginBottom="4dp"
-            android:textColor="#4D000000"
+            android:textSize="@dimen/font_size_medium"
+            android:layout_marginStart="@dimen/spacing_x_medium"
+            android:layout_marginBottom="@dimen/spacing_small"
+            android:textColor="@color/med_gray"
             android:maxLines="1"
             android:ellipsize="end"
             app:layout_constraintTop_toBottomOf="@+id/city_name"
@@ -35,14 +36,14 @@
 
     <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/country_name"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/spacing_zero"
             app:layout_constraintWidth_percent="0.4"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
+            android:textSize="@dimen/font_size_medium"
             android:gravity="end"
-            android:layout_marginBottom="4dp"
-            android:layout_marginEnd="16dp"
-            android:textColor="#4D000000"
+            android:layout_marginBottom="@dimen/spacing_xx_small"
+            android:layout_marginEnd="@dimen/spacing_medium"
+            android:textColor="@color/med_gray"
             android:maxLines="1"
             android:ellipsize="end"
             app:layout_constraintTop_toTopOf="@+id/state_name"
@@ -52,9 +53,9 @@
     <View
             android:id="@+id/line1"
             android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#4D000000"
-            android:layout_marginTop="8dp"
+            android:layout_height="@dimen/spacing_x_small"
+            android:background="@color/med_gray"
+            android:layout_marginTop="@dimen/spacing_small"
             app:layout_constraintTop_toBottomOf="@+id/country_name"
             app:layout_constraintStart_toStartOf="parent" />
 

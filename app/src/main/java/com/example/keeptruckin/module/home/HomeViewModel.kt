@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.keeptruckin.AppConstants
 import com.example.keeptruckin.BaseViewModel
 import com.example.keeptruckin.CitiesDao
 import com.example.keeptruckin.ViewModelLifecycleState
@@ -32,7 +33,7 @@ class HomeViewModel(private val citiesDao: CitiesDao) : BaseViewModel() {
                             clear()
                             addAll(it)
                         }
-                        if(it.size ==0)
+                        if(it.size == AppConstants.ZERO_INT)
                             isDataUnavalable.value = true
                         else
                             isDataUnavalable.value = false
@@ -43,6 +44,6 @@ class HomeViewModel(private val citiesDao: CitiesDao) : BaseViewModel() {
     }
 
     fun openCitySearchActivity() {
-        lifecycleState.onNext(ViewModelLifecycleState.StartWithRequest(1))
+        lifecycleState.onNext(ViewModelLifecycleState.StartWithRequest(AppConstants.ONE_INT))
     }
 }

@@ -5,10 +5,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.keeptruckin.AppApplication
-import com.example.keeptruckin.BaseViewModelActivity
-import com.example.keeptruckin.R
-import com.example.keeptruckin.ViewModelLifecycleState
+import com.example.keeptruckin.*
 import com.example.keeptruckin.di.component.DaggerHomeComponent
 import com.example.keeptruckin.di.module.HomeModule
 import com.example.keeptruckin.model.CityDetail
@@ -60,7 +57,7 @@ class HomeActivity : BaseViewModelActivity() {
 
     override fun onViewModelStartWithRequest(state: ViewModelLifecycleState.StartWithRequest) {
         when (state.request) {
-            1 -> {
+            AppConstants.ONE_INT -> {
                 startActivity(getCitySearchIntent(this))
             }
         }

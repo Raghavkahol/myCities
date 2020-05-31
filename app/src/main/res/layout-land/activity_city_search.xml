@@ -11,7 +11,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/white">
+            android:background="@color/sky_light">
 
         <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
@@ -34,13 +34,24 @@
             />
         </androidx.appcompat.widget.Toolbar>
 
+        <View
+                android:id="@+id/view_city_detail"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="64dp"
+                android:layout_marginEnd="64dp"
+                android:background="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/toolbar"/>
+
         <androidx.appcompat.widget.AppCompatEditText
                 android:id="@+id/search_box"
                 android:layout_width="@dimen/spacing_zero"
                 android:layout_height="wrap_content"
                 app:layout_constraintHorizontal_weight="0.9"
                 app:layout_constraintTop_toBottomOf="@+id/toolbar"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/view_city_detail"
                 android:layout_marginTop="@dimen/spacing_large"
                 android:hint="@string/label_search_cities"
                 android:text="@={viewModel.cityName}"
@@ -60,7 +71,7 @@
                 app:layout_constraintTop_toTopOf="@+id/search_box"
                 app:layout_constraintBottom_toBottomOf="@+id/search_box"
                 app:layout_constraintStart_toEndOf="@+id/search_box"
-                app:layout_constraintEnd_toEndOf="parent"/>
+                app:layout_constraintEnd_toEndOf="@+id/view_city_detail"/>
 
         <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/city_search"
@@ -72,24 +83,25 @@
                 android:onClick="@{()->viewModel.fetchCityList()}"
                 android:background="@drawable/ic_btn_border"
                 app:layout_constraintTop_toBottomOf="@+id/search_box"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"/>
+                app:layout_constraintStart_toStartOf="@+id/view_city_detail"
+                app:layout_constraintEnd_toEndOf="@+id/view_city_detail"/>
 
         <View
                 android:id="@+id/line2"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="@dimen/spacing_x_small"
                 android:background="@color/med_gray"
-                android:layout_marginTop="@dimen/spacing_medium"
+                android:layout_marginTop="@dimen/spacing_large"
                 app:layout_constraintTop_toBottomOf="@+id/city_search"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="@+id/view_city_detail"
+                app:layout_constraintEnd_toEndOf="@+id/view_city_detail"/>
 
         <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycler_view"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="@dimen/spacing_zero"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/view_city_detail"
+                app:layout_constraintEnd_toEndOf="@+id/view_city_detail"
                 app:layout_constraintTop_toBottomOf="@+id/line2"
                 app:recyclerViewAdapter="@{viewModel.cities}"
                 app:layout_constraintBottom_toBottomOf="parent"
