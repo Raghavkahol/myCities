@@ -5,6 +5,7 @@ import androidx.databinding.ObservableArrayList
 import androidx.lifecycle.MutableLiveData
 import com.example.keeptruckin.AppConstants
 import com.example.keeptruckin.BaseViewModel
+import com.example.keeptruckin.model.Cities
 import com.example.keeptruckin.model.CitySearchResult
 import com.example.keeptruckin.service.ApiService
 
@@ -27,22 +28,41 @@ class CitySearchViewModel(private val apiService: ApiService) : BaseViewModel() 
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({
-                        dataLoading.value = false
-                       it._embedded?.city?.let{
-                           with(cities){
-                               clear()
-                               addAll(it)
-                           }
-                           if(it.size == AppConstants.ZERO_INT) {
-                               isDataUnavalable.value = true
-                           }else {
-                               isDataUnavalable.value = false
-                           }
-                       }
+                        updateData(it)
                     }, {
                         dataLoading.value = false
                         it.printStackTrace()
                     })
+            }
+        }
+    }
+
+    fun fetchCityListByLocation( latitude : Double, longitude : Double) {
+            dataLoading.value = true
+            bindDisposable {
+                apiService.getCityListSearchedByLocation(latitude, longitude)
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe({
+                        updateData(it)
+                    }, {
+                        dataLoading.value = false
+                        it.printStackTrace()
+                    })
+            }
+    }
+
+    fun updateData(city : Cities) {
+        dataLoading.value = false
+        city._embedded?.city?.let{
+            with(cities){
+                clear()
+                addAll(it)
+            }
+            if(it.size == AppConstants.ZERO_INT) {
+                isDataUnavalable.value = true
+            }else {
+                isDataUnavalable.value = false
             }
         }
     }

@@ -12,4 +12,5 @@
     <string name="label_Search">Search</string>
     <string name="label_no_city_available">No City Available</string>
     <string name="label_search_cities">Search Cities</string>
+    <string name="label_permission_denied">Permission Denied</string>
 </resources>
