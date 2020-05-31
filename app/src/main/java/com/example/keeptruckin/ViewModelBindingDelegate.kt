@@ -1,7 +1,7 @@
 package com.example.keeptruckin
 
-import android.view.View
-import io.reactivex.rxjava3.disposables.Disposable
+
+import io.reactivex.disposables.Disposable
 import java.lang.ref.WeakReference
 import kotlin.properties.ReadOnlyProperty
 import kotlin.reflect.KProperty

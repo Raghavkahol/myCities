@@ -4,12 +4,16 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.MutableLiveData
+import androidx.recyclerview.widget.DefaultItemAnimator
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.keeptruckin.AppApplication
 import com.example.keeptruckin.BaseViewModelActivity
 import com.example.keeptruckin.R
 import com.example.keeptruckin.di.component.DaggerCitySearchComponent
 import com.example.keeptruckin.di.module.CitySearchModule
+import com.example.keeptruckin.model.CitySearchResult
 import javax.inject.Inject
 
 fun getCitySearchIntent(context: Context): Intent {
@@ -40,7 +44,14 @@ class CitySearchActivity : BaseViewModelActivity() {
             lifecycleOwner = this@CitySearchActivity
             recyclerView.apply {
                 layoutManager = LinearLayoutManager(context)
-
+                adapter = CitySearchAdapter(context,ArrayList<CitySearchResult>())
+                itemAnimator = DefaultItemAnimator()
+                 addItemDecoration(
+                    DividerItemDecoration(
+                        context,
+                        DividerItemDecoration.VERTICAL
+                    )
+                )
             }
 
         }

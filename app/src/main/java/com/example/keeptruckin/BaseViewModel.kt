@@ -1,9 +1,9 @@
 package com.example.keeptruckin
 
 import androidx.lifecycle.ViewModel
-import io.reactivex.rxjava3.disposables.CompositeDisposable
-import io.reactivex.rxjava3.disposables.Disposable
-import io.reactivex.rxjava3.subjects.PublishSubject
+import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.disposables.Disposable
+import io.reactivex.subjects.PublishSubject
 
 open class BaseViewModel : ViewModel() {
     private val compositeDisposable: CompositeDisposable = CompositeDisposable()
