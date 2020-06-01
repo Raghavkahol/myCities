@@ -75,7 +75,7 @@ class CitySearchActivity : BaseViewModelActivity(), View.OnClickListener {
                 )
             }
         }
-        map_search.setOnClickListener(this)
+        map_view.setOnClickListener(this)
     }
 
     override fun setupFragmentComponent() {
@@ -86,11 +86,22 @@ class CitySearchActivity : BaseViewModelActivity(), View.OnClickListener {
     }
 
     override fun onClick(view : View?) {
-        if(ContextCompat.checkSelfPermission(applicationContext ,
-                android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, arrayOf<String>(android.Manifest.permission.ACCESS_FINE_LOCATION), REQUEST_CODE_REQUEST_PERMISSION)
-        } else {
-            getCurrentLocation()
+        when(view?.id) {
+            R.id.map_view -> {
+                if (ContextCompat.checkSelfPermission(
+                        applicationContext,
+                        android.Manifest.permission.ACCESS_FINE_LOCATION
+                    ) != PackageManager.PERMISSION_GRANTED
+                ) {
+                    ActivityCompat.requestPermissions(
+                        this,
+                        arrayOf<String>(android.Manifest.permission.ACCESS_FINE_LOCATION),
+                        REQUEST_CODE_REQUEST_PERMISSION
+                    )
+                } else {
+                    getCurrentLocation()
+                }
+            }
         }
     }
 

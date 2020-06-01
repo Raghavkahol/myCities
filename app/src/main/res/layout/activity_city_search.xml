@@ -38,7 +38,7 @@
                 android:id="@+id/search_box"
                 android:layout_width="@dimen/spacing_zero"
                 android:layout_height="wrap_content"
-                app:layout_constraintHorizontal_weight="0.9"
+                app:layout_constraintWidth_percent="0.7"
                 app:layout_constraintTop_toBottomOf="@+id/toolbar"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginTop="@dimen/spacing_large"
@@ -48,19 +48,31 @@
                 android:textColor="@color/dark_gray"
                 android:layout_marginEnd="@dimen/spacing_medium"
                 android:textColorHint="@color/med_gray"
-                app:layout_constraintEnd_toStartOf="@+id/map_search"
+                app:layout_constraintEnd_toStartOf="@+id/map_view"
         />
+
+        <View
+                android:id="@+id/map_view"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@drawable/ic_btn_border"
+                app:layout_constraintWidth_percent="0.1"
+                android:layout_marginEnd="@dimen/spacing_medium"
+                app:layout_constraintTop_toTopOf="@+id/search_box"
+                app:layout_constraintBottom_toBottomOf="@+id/search_box"
+                app:layout_constraintStart_toEndOf="@+id/search_box"
+                app:layout_constraintEnd_toEndOf="parent"
+                />
 
         <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/map_search"
                 android:layout_width="@dimen/spacing_large"
                 android:layout_height="@dimen/spacing_large"
-                android:layout_marginEnd="@dimen/spacing_medium"
                 android:background="@drawable/ic_crosshair"
-                app:layout_constraintTop_toTopOf="@+id/search_box"
-                app:layout_constraintBottom_toBottomOf="@+id/search_box"
-                app:layout_constraintStart_toEndOf="@+id/search_box"
-                app:layout_constraintEnd_toEndOf="parent"/>
+                app:layout_constraintTop_toTopOf="@+id/map_view"
+                app:layout_constraintBottom_toBottomOf="@+id/map_view"
+                app:layout_constraintStart_toStartOf="@+id/map_view"
+                app:layout_constraintEnd_toEndOf="@+id/map_view"/>
 
         <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/city_search"
