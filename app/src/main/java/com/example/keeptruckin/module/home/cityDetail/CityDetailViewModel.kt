@@ -32,23 +32,27 @@ class CityDetailViewModel(private val apiService: ApiService, private val cities
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({
-                        dataLoading.value = false
-                        cityDetail = it
-                        cityName.value = it.name
-                        it._links?.let{
-                            provinceName.value = it.province_details?.name
-                            countryValue.value = it.country_details?.name
-                            timeZone.value = it.city_timezone?.name
-                        }
-
-                        population.value = it.population
-                        checkForCityInDB(it.geoname_id)
+                       updateView(it)
                     }, {
                         dataLoading.value = false
                         it.printStackTrace()
                     })
             }
         }
+    }
+
+    private fun updateView(cityDetail : CityDetail) {
+        dataLoading.value = false
+        this.cityDetail = cityDetail
+        cityName.value = cityDetail.name
+        cityDetail._links?.let{
+            provinceName.value = it.province_details?.name
+            countryValue.value = it.country_details?.name
+            timeZone.value = it.city_timezone?.name
+        }
+
+        population.value = cityDetail.population
+        checkForCityInDB(cityDetail.geoname_id)
     }
 
     private fun checkForCityInDB(geonameId: Int?) {

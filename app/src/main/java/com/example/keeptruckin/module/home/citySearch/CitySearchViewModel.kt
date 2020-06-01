@@ -58,10 +58,6 @@ class CitySearchViewModel(private val apiService: ApiService) : BaseViewModel() 
         city._embedded?.city?.let{
                 cities.addAll(it)
         }
-        if(city._embedded?.city != null && city._embedded.city.size != AppConstants.ZERO_INT) {
-            isDataUnavalable.value = false
-        }else {
-            isDataUnavalable.value = true
-        }
+        isDataUnavalable.value = !(city._embedded?.city != null && city._embedded.city.size != AppConstants.ZERO_INT)
     }
 }
