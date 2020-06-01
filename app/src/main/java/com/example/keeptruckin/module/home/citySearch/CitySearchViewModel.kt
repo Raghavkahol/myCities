@@ -54,18 +54,14 @@ class CitySearchViewModel(private val apiService: ApiService) : BaseViewModel() 
 
     fun updateData(city : Cities) {
         dataLoading.value = false
+        cities.clear()
         city._embedded?.city?.let{
-            with(cities){
-                clear()
-                addAll(it)
-            }
-            if(it.size == AppConstants.ZERO_INT) {
-                isDataUnavalable.value = true
-            }else {
-                isDataUnavalable.value = false
-            }
+                cities.addAll(it)
+        }
+        if(city._embedded?.city != null && city._embedded.city.size != AppConstants.ZERO_INT) {
+            isDataUnavalable.value = false
+        }else {
+            isDataUnavalable.value = true
         }
     }
-
-
 }
