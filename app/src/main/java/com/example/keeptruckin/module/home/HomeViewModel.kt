@@ -33,10 +33,7 @@ class HomeViewModel(private val citiesDao: CitiesDao) : BaseViewModel() {
                             clear()
                             addAll(it)
                         }
-                        if(it.size == AppConstants.ZERO_INT)
-                            isDataUnavalable.value = true
-                        else
-                            isDataUnavalable.value = false
+                        isDataUnavalable.value = it.size == AppConstants.ZERO_INT
                     }, {
                         it.printStackTrace()
                     })
