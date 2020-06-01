@@ -71,7 +71,7 @@ class CityDetailViewModel(private val apiService: ApiService, private val cities
         }
     }
 
-    fun updateItem() {
+    fun updateDB() {
         if(::cityDetail.isInitialized) {
             if (isInDB.value == true) {
                 removeCityFromDB()

@@ -39,7 +39,7 @@
                     android:text="@{viewModel.isInDB ? @string/label_remove_city : @string/label_add_city}"
                     android:textSize="@dimen/font_size_medium"
                     android:visibility="@{viewModel.isDataAvailable ? View.VISIBLE : View.GONE}"
-                    android:onClick="@{()->viewModel.updateItem()}"
+                    android:onClick="@{()->viewModel.updateDB()}"
                     android:textColor="@color/white"
                     android:layout_gravity="end"
                     android:layout_marginEnd="@dimen/spacing_medium"
